@@ -7,7 +7,7 @@ class book extends Component {
     componentDidMount(){
         axios
         //get all books
-        .get("http://cise-app.herokuapp.com/api/books")
+        .get("https://cise-app.herokuapp.com/api/books")
         .then((res) => {
           this.setState({
             books: res.data,
