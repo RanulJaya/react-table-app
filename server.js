@@ -6,7 +6,7 @@ const path = require('path');
 require('dotenv').config()
 
 // importing files
-const routes = require('./routes');
+const routes = require('./routes/api');
 
 // Define Global Variables
 const app = express();
