@@ -2,6 +2,7 @@
 const mongoose = require('mongoose')
 const express = require('express')
 const path = require('path')
+var cors = require("cors");
 
 require('dotenv').config()
 
@@ -18,6 +19,11 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/my_database', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
+
+
+// cors
+app.use(cors())
+
 
 // Configuration
 app.use(express.json())
