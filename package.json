@@ -23,5 +23,6 @@
     "express": "^4.17.1",
     "mongoose": "^5.13.0",
     "path": "^0.12.7"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }
