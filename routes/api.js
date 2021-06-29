@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const data = require('../data/db.json')
 
-router.get('/', (req, res) => {
-    res.json("Hello World")
+router.get('/books', (req, res) => {
+    res.json(data)
 })
 
 module.exports = router;
