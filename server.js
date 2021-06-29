@@ -22,7 +22,7 @@ mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/my_database', 
 // Configuration
 app.use(express.json())
 app.use(express.urlencoded())
-app.use('/', routes);
+app.use('/api', routes);
 
 // Step 3
 if (process.env.NODE_ENV === 'production') {
