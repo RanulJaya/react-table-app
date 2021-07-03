@@ -13,8 +13,11 @@ class Home extends Component {
     }
 
     render() {
+        
         return (
+            
             <div className="home">
+
                 <p>{this.state.value}</p>
                 <p>{this.state.message}</p>
             </div>

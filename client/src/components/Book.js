@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import '../App.css'
 import axios from 'axios'
 import List from '../components/List.js'
+import Search from '../components/Search'
 
 class book extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class book extends Component {
         this.state = {
             books: [],
             sort: 'title',
-            searchQuery: '',
+            searchTerm: '',
         }
     }
     componentDidMount() {
@@ -29,13 +30,27 @@ class book extends Component {
     render() {
         const books = this.state.books
 
+        const sendData = (index) => {
+            if (index != '') {
+                const click = document.getElementById('buttonClick')
+
+                click.addEventListener('click', () => {
+                    this.setState({
+                        searchTerm: index,
+                    })
+                })
+            }
+        }
+
         return (
             <div className="book">
+                <Search sendData={sendData} />
+                <button id="buttonClick">search</button>
                 <table id="myTable">
                     <thead>
-                        <List bookData = {books}/>
+
+                        <List bookData={books} searchTerm={this.state.searchTerm} />
                     </thead>
-                 
                 </table>
             </div>
         )

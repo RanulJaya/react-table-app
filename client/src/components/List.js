@@ -1,8 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
 class List extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            searchTerm: '',
+        }
+    }
+
     render() {
         const data = this.props.bookData
+        const searchData = this.props.searchTerm
+        this.state.searchTerm = searchData
 
         function articles(articleVar) {
             if (articleVar === '') {
@@ -24,18 +33,29 @@ class List extends Component {
                 <th>SE Claim</th>
                 <th>Claim</th>
                 <th>Stregth of Evidence</th>
-                <th>test</th>
 
-                {data.map((article) => (
-                    <tr>
-                        <td>{article.title}</td>
-                        <td>{articles(article.author)}</td>
-                        <td>{articles(article.year)}</td>
-                        <td>{article.method}</td>
-                        <td>{article.claim}</td>
-                        <td>{article.strength}</td>
-                    </tr>
-                ))}
+                {data
+                    .filter((article) => {
+                        if (this.state.searchTerm == '') {
+                            return article
+                        } else if (
+                            article.title
+                                .toLowerCase()
+                                .includes(this.state.searchTerm.toLowerCase())
+                        ) {
+                            return article
+                        }
+                    })
+                    .map((article) => (
+                        <tr>
+                            <td>{article.title}</td>
+                            <td>{articles(article.author)}</td>
+                            <td>{articles(article.year)}</td>
+                            <td>{article.method}</td>
+                            <td>{article.claim}</td>
+                            <td>{article.strength}</td>
+                        </tr>
+                    ))}
             </div>
         )
     }
