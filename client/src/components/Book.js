@@ -11,6 +11,7 @@ class book extends Component {
             books: [],
             sort: 'title',
             searchTerm: '',
+            option: ''
         }
     }
     componentDidMount() {
@@ -30,13 +31,14 @@ class book extends Component {
     render() {
         const books = this.state.books
 
-        const sendData = (index) => {
+        const sendData = (index, opt) => {
             if (index != '') {
                 const click = document.getElementById('buttonClick')
 
                 click.addEventListener('click', () => {
                     this.setState({
                         searchTerm: index,
+                        option: opt
                     })
                 })
             }
@@ -48,8 +50,11 @@ class book extends Component {
                 <button id="buttonClick">search</button>
                 <table id="myTable">
                     <thead>
-
-                        <List bookData={books} searchTerm={this.state.searchTerm} />
+                        <List
+                            bookData={books}
+                            searchTerm={this.state.searchTerm}
+                            option={this.state.option}
+                        />
                     </thead>
                 </table>
             </div>

@@ -5,13 +5,16 @@ class List extends Component {
         super(props)
         this.state = {
             searchTerm: '',
+            option: '',
         }
     }
 
     render() {
         const data = this.props.bookData
         const searchData = this.props.searchTerm
+        const option = this.props.option
         this.state.searchTerm = searchData
+        this.state.option = option
 
         function articles(articleVar) {
             if (articleVar === '') {
@@ -38,12 +41,43 @@ class List extends Component {
                     .filter((article) => {
                         if (this.state.searchTerm == '') {
                             return article
-                        } else if (
-                            article.title
-                                .toLowerCase()
-                                .includes(this.state.searchTerm.toLowerCase())
-                        ) {
-                            return article
+                        }
+                        if (this.state.option == 'title') {
+                            if (
+                                article.title
+                                    .toLowerCase()
+                                    .includes(
+                                        this.state.searchTerm.toLowerCase()
+                                    )
+                            ) {
+                                return article
+                            }
+                        }
+
+                        if (this.state.option == 'author') {
+                            if (
+                                article.author
+                                    .toLowerCase()
+                                    .includes(
+                                        this.state.searchTerm.toLowerCase()
+                                    )
+                            ) {
+                                return article
+                            }
+                        }
+
+                        //TODO: year for the search function
+
+                        if (this.state.option == 'claim') {
+                            if (
+                                article.method
+                                    .toLowerCase()
+                                    .includes(
+                                        this.state.searchTerm.toLowerCase()
+                                    )
+                            ) {
+                                return article
+                            }
                         }
                     })
                     .map((article) => (

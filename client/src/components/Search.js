@@ -1,27 +1,27 @@
-import { useState } from "react"
+import { useEffect, useState } from 'react'
 
-const Search = ({sendData}) => {
-
-const [searchTerm, setSearch] = useState("")
+const Search = ({ sendData }) => {
+    const [searchTerm, setSearch] = useState('')
+    const [selectValue, setValue] = useState('')
 
     function mySearch() {
-
-            return (
-
-                <input
-                    type="text"
-                    id="myinput"
-                    placeholder="Search"
-                    onChange={(e) =>{
-                        setSearch(e.target.value)
-                    }}
-                />
-            )
+        return (
+            <input
+                type="text"
+                id="myinput"
+                placeholder="Search"
+                onChange={(e) => {
+                    setSearch(e.target.value)
+                }}
+            />
+        )
     }
 
     return (
         <div>
-            <select id="searchOption">
+            <select value = {selectValue}
+             onChange = {(e) => setValue(e.target.value)}
+            >
                 <option value="title" selected>
                     Title
                 </option>
@@ -29,8 +29,9 @@ const [searchTerm, setSearch] = useState("")
                 <option value="year">Year</option>
                 <option value="claim">SE Claim</option>
             </select>
+
             {mySearch()}
-            {sendData(searchTerm)}
+            {sendData(searchTerm, selectValue)}
 
         </div>
     )
