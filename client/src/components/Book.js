@@ -1,45 +1,63 @@
 import React, { Component } from 'react'
 import '../App.css'
-import axios from "axios"
+import axios from 'axios'
+import List from '../components/List.js'
 
 class book extends Component {
-   
-    componentDidMount(){
+    constructor(props) {
+        super(props)
+        this.state = {
+            books: [],
+            sort: 'title',
+            searchQuery: '',
+        }
+    }
+    componentDidMount() {
         axios
-        //get all books
-        .get("https://cise-app.herokuapp.com/api/books")
-        .then((res) => {
-          this.setState({
-            books: res.data,
-          });
-        })
-        .catch((err) => {
-          console.log("Error");
-        });
-
+            //get all books
+            .get('https://cise-app.herokuapp.com/api/books')
+            .then((res) => {
+                this.setState({
+                    books: res.data,
+                })
+            })
+            .catch((err) => {
+                console.log('Error')
+            })
     }
 
     render() {
-        return (<div className="book">
-               <table id="myTable">
-                   <thead>
-              <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Year</th>
-                <th>SE Claim</th>
-                <th>Claim</th>
-                <th>Stregth of Evidence</th>
-              </tr>
-                <tr>
-                    <td>cell 1</td>
-                    <td>cell 2</td>
-                    <td>cell 3</td>
-                </tr>
-                </thead>
-            </table>
-        </div>
-        )}
+        const books = this.state.books
+
+        return (
+            <div className="book">
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Year</th>
+                            <th>SE Claim</th>
+                            <th>Claim</th>
+                            <th>Stregth of Evidence</th>
+                        </tr>
+
+                        {books.map((article) => (
+                            <tr>
+                            <td>{article.title}</td>
+                            <td>{article.author}</td>
+                            <td>{article.year}</td>
+                            <td>{article.method}</td>
+                            <td>{article.claim}</td>
+                            <td>{article.strength}</td>
+                            </tr>
+                        ))}
+                    </thead>
+                 
+                </table>
+            </div>
+        )
+    }
 }
 
 export default book

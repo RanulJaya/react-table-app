@@ -1,18 +1,25 @@
 import './App.css'
 import './components/Book'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Book from './components/Book'
-import Home from './components/Home'
-import React, { Component } from 'react'
-import NavBar from './components/Navbar'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Book from './components/Book.js'
+import Home from './components/Home.js'
+import React from 'react'
+import NavBar from './components/Navbar.js'
 
 function App() {
     return (
         <Router>
             <NavBar />
             <div className="App">
-                <Route exact path="/" component={Home} />
-                <Route exact path="/search" component={Book} />
+                <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+                    <Route exact path="/search">
+                        <Book/>
+                    </Route>
+                </Switch>
+
             </div>
         </Router>
     )
