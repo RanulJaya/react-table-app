@@ -33,25 +33,7 @@ class book extends Component {
             <div className="book">
                 <table id="myTable">
                     <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Year</th>
-                            <th>SE Claim</th>
-                            <th>Claim</th>
-                            <th>Stregth of Evidence</th>
-                        </tr>
-
-                        {books.map((article) => (
-                            <tr>
-                            <td>{article.title}</td>
-                            <td>{article.author}</td>
-                            <td>{article.year}</td>
-                            <td>{article.method}</td>
-                            <td>{article.claim}</td>
-                            <td>{article.strength}</td>
-                            </tr>
-                        ))}
+                        <List bookData = {books}/>
                     </thead>
                  
                 </table>
