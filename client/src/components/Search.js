@@ -22,7 +22,8 @@ const Search = ({ sendData }) => {
             <select value = {selectValue}
              onChange = {(e) => setValue(e.target.value)}
             >
-                <option value="title" selected>
+                <option value="PickOpt" selected>Pick Option</option>
+                <option value="title">
                     Title
                 </option>
                 <option value="author">Author</option>

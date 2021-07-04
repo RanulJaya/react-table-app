@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 
 class List extends Component {
     constructor(props) {
@@ -37,12 +37,20 @@ class List extends Component {
                 <th>Claim</th>
                 <th>Stregth of Evidence</th>
 
+                {console.log(this.state.searchTerm)}
+
                 {data
                     .filter((article) => {
-                        if (this.state.searchTerm == '') {
-                            return article
+                        if (this.state.searchTerm === '') {
+                            if(this.state.option === 'title'){
+                                return article
+                            }
+
+                            else{
+                                return article
+                            }
                         }
-                        if (this.state.option == 'title') {
+                        if (this.state.option === 'title') {
                             if (
                                 article.title
                                     .toLowerCase()
@@ -54,7 +62,7 @@ class List extends Component {
                             }
                         }
 
-                        if (this.state.option == 'author') {
+                        if (this.state.option === 'author') {
                             if (
                                 article.author
                                     .toLowerCase()
@@ -68,7 +76,7 @@ class List extends Component {
 
                         //TODO: year for the search function
 
-                        if (this.state.option == 'claim') {
+                        if (this.state.option === 'claim') {
                             if (
                                 article.method
                                     .toLowerCase()
