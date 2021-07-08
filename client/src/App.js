@@ -5,21 +5,24 @@ import Book from './components/Book.js'
 import Home from './components/Home.js'
 import React from 'react'
 import NavBar from './components/Navbar.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Navbar from 'react-bootstrap/Navbar'
 
 function App() {
     return (
         <Router>
-            <NavBar />
+            <Navbar bg="dark" variant="dark" >
+                <NavBar />
+            </Navbar>
             <div className="App">
                 <Switch>
                     <Route exact path="/">
                         <Home />
                     </Route>
                     <Route exact path="/search">
-                        <Book/>
+                        <Book />
                     </Route>
                 </Switch>
-
             </div>
         </Router>
     )

@@ -30,23 +30,23 @@ class List extends Component {
 
         return (
             <div>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Year</th>
-                <th>SE Claim</th>
-                <th>Claim</th>
-                <th>Stregth of Evidence</th>
+                <thead>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>SE Claim</th>
+                    <th>Claim</th>
+                    <th>Stregth of Evidence</th>
+                </thead>
 
                 {console.log(this.state.searchTerm)}
 
                 {data
                     .filter((article) => {
                         if (this.state.searchTerm === '') {
-                            if(this.state.option === 'title'){
+                            if (this.state.option === 'title') {
                                 return article
-                            }
-
-                            else{
+                            } else {
                                 return article
                             }
                         }

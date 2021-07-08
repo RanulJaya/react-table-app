@@ -3,6 +3,10 @@ import '../App.css'
 import axios from 'axios'
 import List from '../components/List.js'
 import Search from '../components/Search'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Navbar from 'react-bootstrap/Navbar'
+import Table from 'react-bootstrap/Table'
 
 class book extends Component {
     constructor(props) {
@@ -43,16 +47,12 @@ class book extends Component {
                         optionState: true,
                     })
                 })
-            }
-
-            else{
+            } else {
                 const click = document.getElementById('buttonClick')
 
-                if(click === null){
-                    this.setState({optionState: false})
-                }
-
-                else{
+                if (click === null) {
+                    this.setState({ optionState: false })
+                } else {
                     click.addEventListener('click', () => {
                         this.setState({
                             searchTerm: index,
@@ -60,25 +60,27 @@ class book extends Component {
                             optionState: false,
                         })
                     })
-
                 }
-              
             }
         }
 
         return (
             <div className="book">
-                <Search sendData={sendData} />
-                <button id="buttonClick">search</button>
-                <table id="myTable">
-                    <thead>
-                        {<List
-                            bookData={books}
-                            searchTerm={this.state.searchTerm}
-                            option={this.state.option}
-                        />}
-                    </thead>
-                </table>
+                <Navbar className="bg-light justify-content-between">
+                    <Form inline>
+                        <Search sendData={sendData} />
+                        <Button variant="outline-success" id="buttonClick">search</Button>
+                    </Form>
+                </Navbar>
+                <Table striped bordered hover size>
+                        {
+                            <List
+                                bookData={books}
+                                searchTerm={this.state.searchTerm}
+                                option={this.state.option}
+                            />
+                        }
+                </Table>
             </div>
         )
     }

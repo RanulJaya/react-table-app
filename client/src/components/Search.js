@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import FormControl from 'react-bootstrap/FormControl'
 
 const Search = ({ sendData }) => {
     const [searchTerm, setSearch] = useState('')
@@ -6,7 +8,7 @@ const Search = ({ sendData }) => {
 
     function mySearch() {
         return (
-            <input
+            <FormControl
                 type="text"
                 id="myinput"
                 placeholder="Search"
@@ -19,13 +21,14 @@ const Search = ({ sendData }) => {
 
     return (
         <div>
-            <select value = {selectValue}
-             onChange = {(e) => setValue(e.target.value)}
+            <select
+                value={selectValue}
+                onChange={(e) => setValue(e.target.value)}
             >
-                <option value="PickOpt" selected>Pick Option</option>
-                <option value="title">
-                    Title
+                <option value="PickOpt" selected>
+                    Pick Option
                 </option>
+                <option value="title">Title</option>
                 <option value="author">Author</option>
                 <option value="year">Year</option>
                 <option value="claim">SE Claim</option>
@@ -33,7 +36,6 @@ const Search = ({ sendData }) => {
 
             {mySearch()}
             {sendData(searchTerm, selectValue)}
-
         </div>
     )
 }
