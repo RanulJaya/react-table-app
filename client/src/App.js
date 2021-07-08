@@ -11,7 +11,7 @@ import Navbar from 'react-bootstrap/Navbar'
 function App() {
     return (
         <Router>
-            <Navbar bg="dark" variant="dark" >
+            <Navbar bg="dark" variant="dark">
                 <NavBar />
             </Navbar>
             <div className="App">
