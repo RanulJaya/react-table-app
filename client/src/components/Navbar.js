@@ -11,7 +11,7 @@ const NavBar = () => {
             <div className="link">
                 <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/search">Search</Nav.Link>
+                    <Link to="/search">Search</Link>
                 </Nav>
             </div>
         </nav>
