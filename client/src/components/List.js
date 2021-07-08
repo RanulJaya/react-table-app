@@ -39,8 +39,6 @@ class List extends Component {
                     <th>Stregth of Evidence</th>
                 </thead>
 
-                {console.log(this.state.searchTerm)}
-
                 {data
                     .filter((article) => {
                         if (this.state.searchTerm === '') {
