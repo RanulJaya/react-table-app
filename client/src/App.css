@@ -21,6 +21,10 @@
     padding-left: 500px;
 }
 
+.home{
+    padding-top: 10px;
+}
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);

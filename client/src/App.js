@@ -7,11 +7,17 @@ import React from 'react'
 import NavBar from './components/Navbar.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import { LinkContainer } from 'react-router-bootstrap'
 
 function App() {
     return (
         <Router>
+            
             <Navbar bg="dark" variant="dark">
+                <LinkContainer to="/">
+                    <Navbar.Brand>SEEDS</Navbar.Brand>
+                </LinkContainer>
                 <NavBar />
             </Navbar>
             <div className="App">
