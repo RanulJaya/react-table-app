@@ -24,6 +24,7 @@ const Search = ({ sendData }) => {
             <select
                 value={selectValue}
                 onChange={(e) => setValue(e.target.value)}
+                style={{position: 'absolute', left:'390px', height: '35px'}}
             >
                 <option value="PickOpt" selected>
                     Pick Option

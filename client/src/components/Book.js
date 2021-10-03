@@ -67,19 +67,19 @@ class book extends Component {
         return (
             <div className="book">
                 <Navbar className="bg-light justify-content-between">
-                    <Form inline>
+                    <Form inline style={{ alignContent: 'center' }}>
                         <Search sendData={sendData} />
-                        <Button variant="outline-success" id="buttonClick">search</Button>
+                        <Button variant="outline-success" id="buttonClick" style={{ position: 'absolute', right: '480px', top: '8px' }}>search</Button>
                     </Form>
                 </Navbar>
                 <Table striped bordered hover size>
-                        {
-                            <List
-                                bookData={books}
-                                searchTerm={this.state.searchTerm}
-                                option={this.state.option}
-                            />
-                        }
+                    {
+                        <List
+                            bookData={books}
+                            searchTerm={this.state.searchTerm}
+                            option={this.state.option}
+                        />
+                    }
                 </Table>
             </div>
         )

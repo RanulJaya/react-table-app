@@ -30,7 +30,7 @@ class List extends Component {
 
         return (
             <div>
-                <thead>
+                <thead >
                     <th>Title</th>
                     <th>Author</th>
                     <th>Year</th>
